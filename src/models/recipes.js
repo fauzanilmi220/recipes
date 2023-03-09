@@ -1,18 +1,18 @@
 const Pool = require('./../config/db')
 
-const insertData = (data) => {
-    let {ingredients,title,photo,cat_id} = data
-    let time =new Date().toISOString()
-  return Pool.query(
-    `INSERT INTO recipes(title,ingredients,photo,id_cat,created_at) VALUES('${title}','${ingredients}','${photo}',${cat_id},'${time}')`
-  );
+const insertDataRecipe = (data) => {
+  let {ingredients,title,photo,users_id, category_id} = data
+  let time =new Date().toISOString()
+return Pool.query(
+  `INSERT INTO recipes(title,ingredients,photo,users_id,created_at, category_id) VALUES('${title}','${ingredients}','${photo}',${users_id},'${time}','${category_id}')`
+);
 }
 
 const getDataBySearch = (data) => {
   let {searchBy,search,sortBy,sort} = data
   return Pool.query(
-    `SELECT rc.title,rc.ingredients,rc.created_at, cat.category FROM recipes as rc
-    JOIN categories as cat on rc.id_cat = cat.id_cat 
+    `SELECT rc.title,rc.ingredients,rc.created_at, cat.id FROM recipes as rc
+    JOIN category as cat on rc.category_id = cat.id
      WHERE recipes.${searchBy} ILIKE '%${search}%' ORDER BY recipes.${sortBy} ${sort}`
   );
 }
@@ -40,9 +40,9 @@ const updateDataRecipes = (id,data) => {
 const deleteRecipe = (id) => {
   console.log(id)
   return Pool.query(
-    `DELETE FROM recipes WHERE id=${id}`
+    `DELETE FROM recipes WHERE id_recipe=${id}`
   );
 };
 
 
-module.exports = {insertData,getDataBySearch,selectAllRecipe,updateDataRecipes,selectRecipeById,deleteRecipe}
+module.exports = {insertDataRecipe,getDataBySearch,selectAllRecipe,updateDataRecipes,selectRecipeById,deleteRecipe}

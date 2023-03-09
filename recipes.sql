@@ -1,38 +1,38 @@
 CREATE TABLE users (
-    id INT PRIMARY KEY,
-    name VARCHAR,
-    email VARCHAR
+    id SERIAL PRIMARY KEY,
+    name VARCHAR
 );
+DROP TABLE users;
 
-INSERT INTO users VALUES (3, 'ojan', 'ojan@gmail.com');
+INSERT INTO users (name) VALUES ('fauzan');
 
-CREATE TABLE categories(
-    id_Cat VARCHAR PRIMARY KEY,
-    category VARCHAR
+CREATE TABLE category(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL
 );
+-- DROP TABLE categories;
 
-INSERT INTO categories VALUES('CAT3','Desert');
+INSERT INTO category (name) VALUES('Dessert');
 
 CREATE TABLE recipes(
-    id_Recipe INT PRIMARY KEY,
+    id SERIAL,
     title VARCHAR NOT NULL,
-    ingredients VARCHAR NOT NULL,
+    ingredients TEXT NOT NULL,
     photo VARCHAR,
     created_at TIMESTAMP NOT NULL,
-    id_Cat VARCHAR REFERENCES categories(id_Cat)
+    users_id INT REFERENCES users(id),
+    category_id INT REFERENCES category(id)
 );
---  DROP TABLE recipes;
-INSERT INTO recipes VALUES(3,'mie','mie goreng','http://localhost','2023-03-06 14:58:23','CAT1');
 
-SELECT rc.id_recipe,rc.title,rc.ingredients,rc.photo,rc.created_at,c.id_cat,c.category FROM recipes as rc
-join categories as c on rc.id_cat = c.id_cat ;
+ALTER TABLE recipes add deleted_at TIMESTAMP DEFAULT NULL;
 
- SELECT rc.id_recipe,rc.title,rc.ingredients,ca.category FROM recipes as rc 
- JOIN categories as ca ON rc.id_Cat=ca.id_Cat ;
+INSERT INTO recipes(ingredients,title,photo,users_id,created_at, category_id) VALUES('telur','telur rebus','http://localhost',1,'2023-02-14 14:58:23',2);
+
+SELECT rc.title,rc.ingredients,rc.created_at, cat.id FROM recipes as rc
+    JOIN category as cat on rc.category_id = cat.id ;
+    --  WHERE recipes.${searchBy} ILIKE '%${search}%' ORDER BY recipes.${sortBy} ${sort};
 
 select * from recipes;
-SELECT rc.title,rc.ingredients,rc.created_at, cat.category FROM recipes as rc
-JOIN categories as cat on rc.id_cat = cat.id_cat
-WHERE rc.title ILIKE 'telur' ORDER BY rc.id_cat ASC;
+
 
 select * from recipes;

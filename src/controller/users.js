@@ -7,7 +7,7 @@ let data = {
     },
     {
         id:2,
-        name: "ilmi"
+        name: "bayu"
     }]
 }
 

@@ -1,4 +1,4 @@
-const {insertData,getDataBySearch, selectAllRecipe, updateDataRecipes, selectRecipeById,deleteRecipe} = require('./../models/recipes')
+const {insertDataRecipe,getDataBySearch, selectAllRecipe, updateDataRecipes, selectRecipeById,deleteRecipe} = require('./../models/recipes')
 
 const RecipesController = {
     inputRecipes: async (req,res,next)=>{
@@ -7,8 +7,9 @@ const RecipesController = {
         data.photo = req.body.photo
         data.users_id = req.body.users_id
         data.ingredients = req.body.ingredients
+        data.category_id = req.body.category_id
         
-        let result = await insertData(data)
+        let result = await insertDataRecipe(data)
 
         if(!result){
             res.status(404).json({status:404,message:`input data failed`})
@@ -34,6 +35,7 @@ const RecipesController = {
 
         res.status(200).json({status:200,message:`get data success `,data:result.rows})
     },
+
     getAllRecipes : async (req,res,next) => {
         let showRecipe = await selectAllRecipe()
         if(!showRecipe){
@@ -42,8 +44,9 @@ const RecipesController = {
         
         res.status(200).json({status:200,message:`data found`,data:showRecipe.rows})
     },
+
     putDataRecipes: async(req,res,next)=>{
-        let id = req.params.id
+        let id = req.params.id_recipe
         let title = req.body.title
 
         let result = await updateDataRecipes(id,title)
