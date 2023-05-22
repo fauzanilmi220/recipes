@@ -1,19 +1,29 @@
 const express = require('express')
+var cors = require('cors')
 require('dotenv').config()
-const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const mainRouter = require('./src/routes')
 
 const app = express()
-const port = 3000
+const port = 4000
 
-console.log(process.env.DB_NAME)
+app.use(cors({
+  origin: "*",
+  method:"*"
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-app.use(morgan('combined'))
 app.use("/",mainRouter)
+app.use('/img',express.static('./tmp'))
+
+app.use('*',function(req, res) {
+        res.status(404).json({
+          status: 404,
+           message: 'Invalid Request'
+        });
+  });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`)
+  })

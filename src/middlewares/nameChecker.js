@@ -5,7 +5,7 @@ const nameChecker = (req,res,next) => {
         res.status(400).json({status:400,message:`input data failed, name must be character`})
     }
 
-    next()
+    next();
 }
 
 module.exports = nameChecker
