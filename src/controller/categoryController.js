@@ -27,10 +27,11 @@ const CategoryController = {
             next(error)
         }
     },
+
     postCategory: async (req,res,next)=>{
         try {
             let name = req.body.name
-            let input = null
+            let input = 0
     
             input = await insertCategory(name)
     
@@ -45,6 +46,7 @@ const CategoryController = {
             next(error)
         }
     },
+
     deleteCategory: async (req,res,next)=>{
         try {
             let id = req.params.id
@@ -66,6 +68,7 @@ const CategoryController = {
             next(error)
         }
     },
+    
     updateCategory: async (req,res,next)=>{
         try {
             let id = req.params.id

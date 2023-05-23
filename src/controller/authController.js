@@ -25,7 +25,7 @@ const AuthController = {
                         email: req.body.email,
                         password: await argon2.hash(req.body.password),
                         name: req.body.name,
-                        photo: 'https://res.cloudinary.com/dfwx7ogug/image/upload/v1679293948/profile/blank-profile-picture-973460_1280_omhjlv.webp',
+                        photo: 'https://res.cloudinary.com/dogzrltg9/image/upload/v1684861256/recipes/karen_v2oro9.png',
                         otp: otp,
                         role: req.body.role || 'User'
                     }
@@ -78,9 +78,9 @@ const AuthController = {
                             delete users.otp
                             delete users.valid
                             delete users.created_at
-                            res.status(200).json({status:200,message:`Login success, Welcome back ${users.role} ${users.name}`,data:users})   
+                            res.status(200).json({status:200,message:`Login success ${users.role} ${users.name}`,data:users})   
                         } else {
-                            res.status(404).json({status:404,message:`Account has not been verified`})
+                            res.status(404).json({status:404,message:`Account has not avtivated`})
                         }       
                     } else {
                         res.status(404).json({status:404,message:`Login failed`})

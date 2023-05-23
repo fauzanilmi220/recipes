@@ -1,5 +1,5 @@
 const {selectRecipe,insertRecipe,selectRecipeByUserId,selectRecipeById,deleteRecipeById,updateRecipe} = require('../models/recipesModel')
-const cloudinary = require("../config/cloudinary")
+const cloudinary = require("../config/upload")
 
 const recipeController = {
     getDetailRecipe: async (req,res,next)=>{
@@ -17,6 +17,7 @@ const recipeController = {
             next(error)
         }
     },
+
     getUserRecipe: async (req,res,next)=>{
         try {
             let {search,sortby,sort} = req.query
@@ -37,6 +38,7 @@ const recipeController = {
             next(error)
         }
     },
+
     getRecipe: async (req,res,next)=>{
         try {
             let {search,sortby,sort,page,limit} = req.query
@@ -58,6 +60,7 @@ const recipeController = {
             next(error)
         }
     },
+
     postRecipe: async (req,res,next)=>{
         try {
             if (req.file) {
@@ -100,7 +103,7 @@ const recipeController = {
             else {
                 let data = {}
                 data.name = req.body.name
-                data.photo = 'https://res.cloudinary.com/dfwx7ogug/image/upload/v1677589653/food/image_404_kto6wz.jpg'
+                data.photo = 'https://res.cloudinary.com/dogzrltg9/image/upload/v1684861256/recipes/karen_v2oro9.png'
                 data.users_id = req.payload.id
                 data.ingredient = req.body.ingredient
                 data.category_id = req.body.category_id
@@ -125,18 +128,19 @@ const recipeController = {
             next(error)
         }
     },
+
     deleteRecipe: async (req,res,next)=>{
         try {
             let userId = req.payload.id
             let id = req.params.id
-            let dlt = null
+            let del = null
     
             let checkData = await selectRecipeById(id)
             if (!checkData.rows[0]) {
                 res.status(404).json({status:404,message:`id invalid`})
             } else {
                 if (userId == checkData.rows[0].users_id) {
-                    dlt = await deleteRecipeById(id)
+                    del = await deleteRecipeById(id)
                     checkData = await selectRecipeById(id)
                     res.status(200).json({status:200,message:`data delete successfully`,data:checkData.rows})   
                 } else {
@@ -147,6 +151,7 @@ const recipeController = {
             next(error)
         }
     },
+    
     updateRecipe: async (req,res,next)=>{
         try {
             let id = req.params.id

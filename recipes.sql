@@ -1,38 +1,63 @@
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR
+-- Active: 1677989610185@@149.129.241.190@5432@fauzan01
+--USERS
+CREATE TABLE users(
+    id VARCHAR PRIMARY KEY,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    name VARCHAR,
+    photo VARCHAR,
+    valid INT DEFAULT 0,
+    OTP VARCHAR,
+    created_at TIMESTAMP,
+    deleted_at TIMESTAMP DEFAULT NULL,
+    role VARCHAR NOT NULL
 );
-DROP TABLE users;
 
-INSERT INTO users (name) VALUES ('fauzan');
+SELECT * FROM users;
 
-CREATE TABLE category(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR NOT NULL
-);
--- DROP TABLE categories;
-
-INSERT INTO category (name) VALUES('Dessert');
-
-CREATE TABLE recipes(
-    id SERIAL,
-    title VARCHAR NOT NULL,
-    ingredients TEXT NOT NULL,
+--RECIPE
+CREATE TABLE recipe(
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR,
+    ingredient TEXT,
     photo VARCHAR,
     created_at TIMESTAMP NOT NULL,
-    users_id INT REFERENCES users(id),
-    category_id INT REFERENCES category(id)
+    users_id VARCHAR REFERENCES users(id),
+    category_id INT REFERENCES category(id),
+    deleted_at TIMESTAMP DEFAULT NULL
 );
 
-ALTER TABLE recipes add deleted_at TIMESTAMP DEFAULT NULL;
+SELECT * FROM recipe;
 
-INSERT INTO recipes(ingredients,title,photo,users_id,created_at, category_id) VALUES('telur','telur rebus','http://localhost',1,'2023-02-14 14:58:23',2);
+SELECT * FROM recipe where deleted_at IS NOT NULL;
 
-SELECT rc.title,rc.ingredients,rc.created_at, cat.id FROM recipes as rc
-    JOIN category as cat on rc.category_id = cat.id ;
-    --  WHERE recipes.${searchBy} ILIKE '%${search}%' ORDER BY recipes.${sortBy} ${sort};
+SELECT * FROM recipe where deleted_at IS NULL;
 
-select * from recipes;
+SELECT * FROM recipe ORDER BY created_at DESC OFFSET 1 LIMIT 10;
 
+UPDATE recipe SET photo = NULL WHERE name = 'lele';
 
-select * from recipes;
+ALTER TABLE recipe add deleted_at TIMESTAMP DEFAULT NULL;
+
+ALTER TABLE recipe DROP COLUMN users_id;
+
+ALTER TABLE recipe add users_id VARCHAR;
+
+ALTER TABLE recipe add Foreign Key (users_id) REFERENCES users(id);
+
+--CATEGORY
+CREATE TABLE category(
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR,
+    deleted_at TIMESTAMP DEFAULT NULL
+);
+
+SELECT * FROM category;
+
+INSERT INTO category(name) VALUES('Main Dish');
+
+UPDATE category SET name = 'Dessert' WHERE id = 1;
+
+ALTER TABLE category add deleted_at TIMESTAMP DEFAULT NULL;
+
+DELETE FROM category WHERE name = 'undefined';

@@ -27,6 +27,7 @@ const UsersController = {
             next(error)
         }
     },
+
     postUsers: async (req,res,next)=>{
         try {
             let name = req.body.name
@@ -45,6 +46,7 @@ const UsersController = {
             next(error)
         }
     },
+
     deleteUsers: async (req,res,next)=>{
         try {
             let id = req.params.id
@@ -52,7 +54,7 @@ const UsersController = {
     
             let checkData = await selectUsersById(id)
             if (!checkData.rows[0]) {
-                res.status(404).json({status:404,message:`id invalid`})
+                res.status(404).json({status:404,message:`sorry id is not registered`})
             } else {
                 dlt = await deleteUsersById(id)
                 checkData = await selectUsersById(id)
@@ -62,6 +64,7 @@ const UsersController = {
             next(error)
         }
     },
+    
     updateUsers: async (req,res,next)=>{
         try {
             let id = req.payload.id
