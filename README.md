@@ -1,5 +1,5 @@
 ## RECIPES
-Backend API for Recipes designed to exchange and discover recipes for cooking any Dishes. It enables us to share our recipes, along with detailed ingredient and cooking instructions. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
+Backend API for Recipes designed to exchange and discover recipes for cooking any Dishes. It enables us to share our recipes with detailed ingredient and cooking instructions. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
 
 ### BUILT
 
