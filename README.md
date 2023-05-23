@@ -1,9 +1,9 @@
-## About The Project
-Food Recipe API is an API that functions as a Backend containing user, category, and recipe data. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
+## RECIPES
+Backend API for Recipes designed to exchange and discover recipes for cooking any Dishes. It enables us to share our recipes, along with detailed ingredient and cooking instructions. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
 
 ### BUILT
 
-This app was built with some technologies below:
+This app was built with:
 
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)
@@ -14,8 +14,7 @@ This app was built with some technologies below:
 1. <a href="https://nodejs.org/en/">Node Js</a>
 2. <a href="https://www.postman.com/downloads/">Postman</a>
 3. Database (<a href="https://www.postgresql.org/download/">PostgreSQL</a>)
-4. Server (Localhost or Online Server)
-5. <a href="https://cloudinary.com">Cloudinary</a>
+4. <a href="https://cloudinary.com">Cloudinary</a>
 
 ## Installation Steps
 1. Clone this repo to your project directory
