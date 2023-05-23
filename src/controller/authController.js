@@ -54,6 +54,7 @@ const AuthController = {
             next(error)
         }                
     },
+
     loginUser: async (req,res,next)=>{
         try {
             if(!req.body.email || !req.body.password){
@@ -91,6 +92,7 @@ const AuthController = {
             next(error)
         }
     },
+    
     otp: async (req,res,next)=>{
         let userId = req.params.id
         let otpUser = req.params.code
