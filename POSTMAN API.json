@@ -1,0 +1,430 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "b67f4a8b-35e9-4c95-b89c-954050dcdda9",
+            "name": "RECIPE API",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2023-05-24T15:02:53.000Z",
+            "uid": "25937527-b67f4a8b-35e9-4c95-b89c-954050dcdda9"
+        },
+        "item": [
+            {
+                "name": "USERS",
+                "item": [
+                    {
+                        "name": "GET USERS",
+                        "id": "992115f6-3616-4b58-9225-775758de72b5",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": []
+                        },
+                        "response": [],
+                        "uid": "25937527-992115f6-3616-4b58-9225-775758de72b5"
+                    },
+                    {
+                        "name": "GET USERS PROFIL",
+                        "id": "f849c56e-c42c-4c24-8a3d-3dd724fada9e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": []
+                        },
+                        "response": [],
+                        "uid": "25937527-f849c56e-c42c-4c24-8a3d-3dd724fada9e"
+                    },
+                    {
+                        "name": "UPDATE USERS",
+                        "id": "933fda96-eb32-4381-8533-a6c7bfa9988e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "auth": {
+                                "type": "bearer",
+                                "bearer": [
+                                    {
+                                        "key": "token",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTI1ZTVhLTIyZDktNGFiZi04MzBkLTMxMDQ2NTkwZWI1NyIsImVtYWlsIjoidGVzdDJAZW1haWwuY29tIiwibmFtZSI6IlRlc3QiLCJwaG90byI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RvZ3pybHRnOS9pbWFnZS91cGxvYWQvdjE2ODQ4NjEyNTYvcmVjaXBlcy9rYXJlbl92Mm9ybzkucG5nIiwidmFsaWQiOjEsIm90cCI6IjMzMzUzOCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA1LTI0VDA3OjMzOjA2LjAwMFoiLCJkZWxldGVkX2F0IjpudWxsLCJyb2xlIjoiVXNlciIsImlhdCI6MTY4NDkzODg4MCwiZXhwIjoxNjg2MjM0ODgwfQ.nUdKaiF2gDIfHlEkoBDaBcxWchCIPxyZ1piDfL27gEk",
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "method": "PUT",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Zoom\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/users/updateProfile",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "users",
+                                    "updateProfile"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-933fda96-eb32-4381-8533-a6c7bfa9988e"
+                    }
+                ],
+                "id": "ab449b18-0915-415a-8973-9014dcb833f4",
+                "uid": "25937527-ab449b18-0915-415a-8973-9014dcb833f4"
+            },
+            {
+                "name": "AUTH",
+                "item": [
+                    {
+                        "name": "Post Auth",
+                        "id": "14165196-6161-4e70-b1a1-3dc4d7773ba3",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"email\":\"go@email.com\",\"name\":\"go\",\"password\":\"123\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/auth/register",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "auth",
+                                    "register"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-14165196-6161-4e70-b1a1-3dc4d7773ba3"
+                    },
+                    {
+                        "name": "Login",
+                        "id": "aefd73bd-f7e7-4e18-9d06-16024f451d90",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"email\":\"test2@email.com\",\"password\":\"123\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/auth/login",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "auth",
+                                    "login"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-aefd73bd-f7e7-4e18-9d06-16024f451d90"
+                    }
+                ],
+                "id": "587823f4-9460-4975-bb61-a07caf3e7ea6",
+                "uid": "25937527-587823f4-9460-4975-bb61-a07caf3e7ea6"
+            },
+            {
+                "name": "CATEGORY",
+                "item": [
+                    {
+                        "name": "Get category",
+                        "id": "1c08eb6d-ed94-4e11-8722-90d4f7485bbc",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": []
+                        },
+                        "response": [],
+                        "uid": "25937527-1c08eb6d-ed94-4e11-8722-90d4f7485bbc"
+                    },
+                    {
+                        "name": "Post Category",
+                        "id": "6d792347-c6bb-4283-8e3f-f39ff9c73ce2",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Dessert\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/category",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "category"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-6d792347-c6bb-4283-8e3f-f39ff9c73ce2"
+                    },
+                    {
+                        "name": "Upd Cat",
+                        "id": "5b36c417-66b1-4901-8ea0-0730c6c80dcc",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Penutup\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/category/4",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "category",
+                                    "4"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-5b36c417-66b1-4901-8ea0-0730c6c80dcc"
+                    },
+                    {
+                        "name": "DEL Cat",
+                        "id": "67c9a9c8-4bc0-4299-94c3-b4abfbcc4ecc",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Penutup\"}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/category/4",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "category",
+                                    "4"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-67c9a9c8-4bc0-4299-94c3-b4abfbcc4ecc"
+                    }
+                ],
+                "id": "4b4eab06-dd3b-4051-9637-5ef68f6d0ad2",
+                "uid": "25937527-4b4eab06-dd3b-4051-9637-5ef68f6d0ad2"
+            },
+            {
+                "name": "RECIPE",
+                "item": [
+                    {
+                        "name": "Get Recipe",
+                        "id": "1ed18434-d691-4c67-a16d-e1ad0683d263",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": []
+                        },
+                        "response": [],
+                        "uid": "25937527-1ed18434-d691-4c67-a16d-e1ad0683d263"
+                    },
+                    {
+                        "name": "Post Recipe",
+                        "id": "7aafd7c3-893c-4e92-b33c-4ca6c5358c38",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Fried Chicken\",\"ingredient\":\"Chicken\",\"photo\" :\"https://res.cloudinary.com/dogzrltg9/image/upload/v1684861259/recipes/egg_salad_wonwjr.png\",\"category_id\":1}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/recipe/",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "recipe",
+                                    ""
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-7aafd7c3-893c-4e92-b33c-4ca6c5358c38"
+                    },
+                    {
+                        "name": "Upd Recipe",
+                        "id": "9b9dc303-22b0-4d4b-b129-855437db395c",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "auth": {
+                                "type": "bearer",
+                                "bearer": [
+                                    {
+                                        "key": "token",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTI1ZTVhLTIyZDktNGFiZi04MzBkLTMxMDQ2NTkwZWI1NyIsImVtYWlsIjoidGVzdDJAZW1haWwuY29tIiwibmFtZSI6IlRlc3QiLCJwaG90byI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RvZ3pybHRnOS9pbWFnZS91cGxvYWQvdjE2ODQ4NjEyNTYvcmVjaXBlcy9rYXJlbl92Mm9ybzkucG5nIiwidmFsaWQiOjEsIm90cCI6IjMzMzUzOCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA1LTI0VDA3OjMzOjA2LjAwMFoiLCJkZWxldGVkX2F0IjpudWxsLCJyb2xlIjoiVXNlciIsImlhdCI6MTY4NDkzODg4MCwiZXhwIjoxNjg2MjM0ODgwfQ.nUdKaiF2gDIfHlEkoBDaBcxWchCIPxyZ1piDfL27gEk",
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "method": "PUT",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\"name\":\"Fried Chicken\",\"ingredient\":\"Chicken\",\"photo\" :\"https://res.cloudinary.com/dogzrltg9/image/upload/v1684861256/recipes/cake_zzd4y0.png\",\"category_id\":1}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/recipe/update/1",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "recipe",
+                                    "update",
+                                    "1"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-9b9dc303-22b0-4d4b-b129-855437db395c"
+                    },
+                    {
+                        "name": "Del Recipe",
+                        "id": "6b2b54e6-ba67-4ad3-86e3-ad6cf16814aa",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "auth": {
+                                "type": "bearer",
+                                "bearer": [
+                                    {
+                                        "key": "token",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTI1ZTVhLTIyZDktNGFiZi04MzBkLTMxMDQ2NTkwZWI1NyIsImVtYWlsIjoidGVzdDJAZW1haWwuY29tIiwibmFtZSI6IlRlc3QiLCJwaG90byI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RvZ3pybHRnOS9pbWFnZS91cGxvYWQvdjE2ODQ4NjEyNTYvcmVjaXBlcy9rYXJlbl92Mm9ybzkucG5nIiwidmFsaWQiOjEsIm90cCI6IjMzMzUzOCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA1LTI0VDA3OjMzOjA2LjAwMFoiLCJkZWxldGVkX2F0IjpudWxsLCJyb2xlIjoiVXNlciIsImlhdCI6MTY4NDkzODg4MCwiZXhwIjoxNjg2MjM0ODgwfQ.nUdKaiF2gDIfHlEkoBDaBcxWchCIPxyZ1piDfL27gEk",
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "method": "DELETE",
+                            "header": [],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "http://localhost:4000/recipe/delete/1",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "4000",
+                                "path": [
+                                    "recipe",
+                                    "delete",
+                                    "1"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "25937527-6b2b54e6-ba67-4ad3-86e3-ad6cf16814aa"
+                    }
+                ],
+                "id": "0af1254b-0b19-4262-8906-eeddcde0e68f",
+                "uid": "25937527-0af1254b-0b19-4262-8906-eeddcde0e68f"
+            }
+        ]
+    }
+}

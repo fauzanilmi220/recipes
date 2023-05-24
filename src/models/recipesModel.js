@@ -4,24 +4,24 @@ const selectRecipe = (data) => {
   let {search,sortby,sort,page,limit} = data
   getQuery = `
     SELECT
-      rc.id, 
-      rc.name,
-      rc.ingredient,
-      rc.created_at as post_time, 
+      recipe.id, 
+      recipe.name,
+      recipe.ingredient,
+      recipe.created_at as post_time, 
       category.name as category,
       users.name as creator,
-      rc.photo,
-      rc.photo as creator_photo
+      recipe.photo,
+      users.photo as creator_photo
     FROM 
-      recipe as rc
+      recipe 
     JOIN 
-      category as cat ON rc.category_id=cat.id 
+      category ON recipe.category_id=category.id 
     JOIN 
-      users as us ON us.id = users_id
+      users ON users.id = users_id 
     WHERE 
-      rc.name ILIKE '%${search}%' AND rc.deleted_at IS NULL 
+      recipe.name ILIKE '%${search}%' AND recipe.deleted_at IS NULL 
     ORDER BY 
-      rc.${sortby} ${sort}`
+      recipe.${sortby} ${sort}`
   if (page && limit) {
     getQuery += ` OFFSET ${(page-1)*limit} LIMIT ${limit}`
   }
@@ -44,24 +44,24 @@ const selectRecipeByUserId = (data) => {
   let {search,sortby,sort,id} = data
   return Pool.query(
     `SELECT
-      rc.id,  
-      rc.name,
-      rc.ingredient,
-      rc.created_at as post_time, 
+      recipe.id,  
+      recipe.name,
+      recipe.ingredient,
+      recipe.created_at as post_time, 
       category.name as category,
       users.name as creator,
-      rc.photo,
+      recipe.photo,
       users.photo as creator_photo
     FROM 
-      recipe as rc
+      recipe 
     JOIN 
-      category as cat ON rc.category_id=cat.id
+      category ON recipe.category_id=category.id
     JOIN 
-      users as us ON us.id = users_id
+      users ON users.id = users_id
     WHERE 
-      rc.name ILIKE '%${search}%' AND rc.deleted_at IS NULL AND rc.users_id='${id}' 
+      recipe.name ILIKE '%${search}%' AND recipe.deleted_at IS NULL AND recipe.users_id='${id}' 
     ORDER BY 
-      rc.${sortby} ${sort}`
+      recipe.${sortby} ${sort}`
   );
 }
 
@@ -69,24 +69,24 @@ const selectRecipeById = (data) => {
   console.log(data)
   return Pool.query(
     `SELECT 
-      rc.name,
-      rc.ingredient,
-      rc.created_at as post_time, 
-      cat.name as category,
+      recipe.name,
+      recipe.ingredient,
+      recipe.created_at as post_time, 
+      category.name as category,
       users.name as creator,
-      rc.photo,
-      rc.deleted_at as delete_time,
-      rc.users_id,
-      rc.category_id,
+      recipe.photo,
+      recipe.deleted_at as delete_time,
+      recipe.users_id,
+      recipe.category_id,
       users.photo as creator_photo
     FROM 
-      recipe as rc
+      recipe 
     JOIN 
-      category as cat ON rc.category_id=cat.id
+      category ON recipe.category_id=category.id
     JOIN 
       users ON users.id = users_id
     WHERE 
-      rc.id = ${data}`
+      recipe.id = ${data}`
   );
 }
 
