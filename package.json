@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "argon": "^2.0.21",
     "argon2": "^0.30.3",
     "body-parser": "^1.20.2",
     "cloudinary": "^1.37.0",
