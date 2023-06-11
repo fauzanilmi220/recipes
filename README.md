@@ -1,14 +1,27 @@
-## RECIPES
+<h1 align="center">Recipes API</h1>
+<div align="center">
+  <img src='https://user-images.githubusercontent.com/126861853/244944772-c5b36b83-404c-441b-b6ad-fbcd416cd213.png' width="150" height="150" />
+</div>
+
+## Table of Contents
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installation-and-usage-steps">Installation and Usage Steps</a></li>
+    <li><a href="#api-route">API Route</a></li>
+    <li><a href="#related-project">Related Project</a></li>
+  </ol>
+</details>
+
+## About The Project
 Backend API for Recipes designed to exchange and discover recipes for cooking any Dishes. It enables us to share our recipes with detailed ingredient and cooking instructions. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
-
-### BUILT
-
-This app was built with:
-
-- [Node.js](https://nodejs.org/en/)
-- [Express.js](https://expressjs.com/)
-- [JSON Web Tokens](https://jwt.io/)
-- [PostgreSQL](https://www.postgresql.org/)
 
 ## Requirements
 1. <a href="https://nodejs.org/en/">Node Js</a>
