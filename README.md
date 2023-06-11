@@ -1,4 +1,4 @@
-<h1 align="center">Food Recipe API</h1>
+<h1 align="center">Recipes API</h1>
 <div align="center">
   <img src='https://user-images.githubusercontent.com/126861853/244944772-c5b36b83-404c-441b-b6ad-fbcd416cd213.png' width="150" height="150" />
 </div>
