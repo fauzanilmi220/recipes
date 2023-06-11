@@ -20,6 +20,9 @@
   </ol>
 </details>
 
+## About The Project
+rECIPES API is an API that functions as a Backend containing user, category, and recipe data. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
+
 ## RECIPES
 Backend API for Recipes designed to exchange and discover recipes for cooking any Dishes. It enables us to share our recipes with detailed ingredient and cooking instructions. This API is built with <a href="https://expressjs.com">ExpressJs</a> which is a simple and flexible web application framework that uses <a href="https://nodejs.org/en/about/">NodeJs<a/>.<br>
 
