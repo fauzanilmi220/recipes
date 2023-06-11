@@ -8,7 +8,5 @@ const upload = require('../middlewares/uploadPhoto')
 router.get('/',getUsers)
 router.get('/myProfile',protect,getDetailUsers)
 router.put('/updateProfile',protect,upload.single('photo'),updateUsers)
-// router.post('/',nameChecker,postUsers)
-// router.delete('/delete/:id',deleteUsers)
 
 module.exports = router
